@@ -37,7 +37,8 @@
   border-radius: 50%;
   border: 1px solid var(--c-blue-edge, rgba(37, 99, 235, 0.22));
   background: var(--c-blue-soft, rgba(37, 99, 235, 0.10));
-  color: var(--c-blue-strong, #1d4ed8);
+  /* --c-blue-strong is a hover-fill shade in dark mode (too dim as a glyph). */
+  color: light-dark(var(--c-blue-strong, #1d4ed8), #8fb0ff);
   cursor: pointer;
   flex-shrink: 0;
   transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
@@ -82,7 +83,10 @@
   padding: 10px 12px;
   border-radius: var(--r-md, 10px);
   border: 1px solid var(--c-border-strong, rgba(15, 23, 42, 0.18));
-  background: var(--c-surface, #ffffff);
+  /* --c-card is defined in both themes; --c-surface is not defined by the
+     token sheet, so the old fallback left the popover white in dark mode while
+     its text (--c-ink) turned light. */
+  background: var(--c-card, #ffffff);
   color: var(--c-ink, #0b1220);
   box-shadow: var(--shadow-lg, 0 8px 24px rgba(15, 23, 42, 0.18));
   text-align: left;
